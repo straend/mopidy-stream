@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:0.9.11
 MAINTAINER Tomas Strand <tomas@fik1.net>
 
 # Orginal maintainer and creator, all credits should go to him
