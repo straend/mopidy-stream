@@ -7,7 +7,7 @@ This solution pipes the output through liquidsoap which then provides a http str
 ## Setup
 
 ```
-$~ git clone https://github.com/straend/docker-container.git
+$~ git clone https://github.com/straend/mopidy-stream.git
 $~ cd docker-container/mopidy-stream
 $~ docker build -t mopidy-stream .
 ```

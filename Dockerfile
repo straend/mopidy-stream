@@ -1,6 +1,9 @@
 FROM phusion/baseimage:latest
-MAINTAINER Christopher Schirner <christopher@hackerspace-bamberg.de>
+MAINTAINER Tomas Strand <tomas@fik1.net>
 
+# Orginal maintainer and creator, all credits should go to him
+# Christopher Schirner <christopher@hackerspace-bamberg.de>
+# I just changed the weblient repo
 ##########################################################################################
 # baseimage specific stuff
 
