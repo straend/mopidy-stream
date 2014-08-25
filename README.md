@@ -1,4 +1,9 @@
 # mopidy-stream
+Orginal from Christopher Schirner
+
+@ https://github.com/schinken/docker-container/tree/master/mopidy-stream
+
+Modified to clone my version of the webclient
 
 This is a docker container which provides the latest mopidy release combined with a streaming server. The current version (0.19) sends EOS (End-of-Stream) if the track changes which closes the stream in icecast, mplayer, etc.
 
@@ -8,7 +13,7 @@ This solution pipes the output through liquidsoap which then provides a http str
 
 ```
 $~ git clone https://github.com/straend/mopidy-stream.git
-$~ cd docker-container/mopidy-stream
+$~ cd mopidy-stream
 $~ docker build -t mopidy-stream .
 ```
 
@@ -16,6 +21,11 @@ $~ docker build -t mopidy-stream .
 
 ```
 docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t mopidy-stream:latest
+```
+
+You could also run it direct from hub.docker.com with the following commnd:
+```
+docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t iamslo/mopidy-stream:latest
 ```
 
 * Port 6600 provides the mpd interface
