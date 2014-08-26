@@ -19,18 +19,20 @@ $~ docker build -t mopidy-stream .
 
 ## Running the container
 
+The container exposes port 80 with nginx acting as a reverse proxy, serving both the webinterface and the stream.
+Stream is available at http://<ip:port>/stream/stream
+Web interface is at http://<ip:port>
+
 ```
-docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t mopidy-stream:latest
+docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 80 -t mopidy-stream:latest
 ```
 
 You could also run it direct from hub.docker.com with the following commnd:
 ```
-docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 6600:6600 -p 6680:6680 -p 8800:8800 -t iamslo/mopidy-stream:latest
+docker run -e SPOTIFY_USERNAME=spotifyUser42 -e SPOTIFY_PASSWORD=spotifyPassword123 -p 80 -t iamslo/mopidy-stream:latest
 ```
 
-* Port 6600 provides the mpd interface
-* On Port 6680 there's the webinterface "Mopidy-MusicBox-Webclient"
-* Port 8800 provides the HTTP stream encoded as mp3-192
+
 
 
 ## Planned
