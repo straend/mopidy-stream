@@ -40,8 +40,14 @@ RUN apt-get install -y git
 RUN git clone https://github.com/straend/Mopidy-MusicBox-Webclient.git /usr/local/src/mopidy-web
 RUN ln -s /usr/local/src/mopidy-web/webclient /etc/mopidy/www
 
+RUN apt-get install -y nginx
+
 ##########################################################################################
 # Add configurations
+
+RUN rm -v /etc/nginx/nginx.conf
+ADD cfg/server.conf /etc/nginx/nginx.conf
+RUN echo "daemon off;">>/etc/nginx/nginx.conf
 
 ADD cfg/mopidy.conf /etc/mopidy/mopidy.conf
 
@@ -59,13 +65,15 @@ RUN mkdir /etc/service/01-mopidy
 ADD run/mopidy.sh /etc/service/01-mopidy/run
 RUN chmod +x /etc/service/01-mopidy/run
 
+RUN mkdir /etc/service/02-nginx
+ADD run/nginx.sh /etc/service/02-nginx/run
+RUN chmod +x /etc/service/02-nginx/run
+
 ##########################################################################################
 # Finish container
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 6680
-EXPOSE 6600
-EXPOSE 8800
+EXPOSE 80
 
 CMD ["/sbin/my_init"]

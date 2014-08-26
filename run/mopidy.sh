@@ -9,7 +9,7 @@ if [ -n "$SPOTIFY_USERNAME" ]; then
 fi
 
 if [ -n "$SOUNDCLOUD_TOKEN" ]; then
-  echo "\n[soundcloud]\nauth_token = $SOUNDCLOUD_TOKEN\n" >> /etc/mopidy.cond
+  echo -e  "\n[soundcloud]\nauth_token = $SOUNDCLOUD_TOKEN\n" >> /etc/mopidy.conf
 fi
 
 
